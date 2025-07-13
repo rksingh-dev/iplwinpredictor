@@ -29,7 +29,7 @@ A machine learning-powered web application that predicts the probability of a te
 ## 📊 Model Information
 
 The application uses a pre-trained machine learning pipeline (`pipe.pkl`) that includes:
-- **Algorithm**: Classification model (likely Random Forest or similar)
+- **Algorithm**: Classification model
 - **Features**: 9 key match parameters
 - **Output**: Win probability percentage and binary prediction (Win/Lose)
 - **Training Data**: Historical IPL match data
