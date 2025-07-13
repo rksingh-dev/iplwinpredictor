@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Win Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">IPL Win Predictor</h1>
+    <form method="post" action="/">
+        <div class="mb-3">
+            <label for="batting_team" class="form-label">Batting Team</label>
+            <select class="form-select" id="batting_team" name="batting_team" required>
+                {% for team in teams %}
+                <option value="{{ team }}">{{ team }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="bowling_team" class="form-label">Bowling Team</label>
+            <select class="form-select" id="bowling_team" name="bowling_team" required>
+                {% for team in teams %}
+                <option value="{{ team }}">{{ team }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <select class="form-select" id="city" name="city" required>
+                {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="runs_left" class="form-label">Runs Left</label>
+            <input type="number" class="form-control" id="runs_left" name="runs_left" required min="0">
+        </div>
+        <div class="mb-3">
+            <label for="balls_left" class="form-label">Balls Left</label>
+            <input type="number" class="form-control" id="balls_left" name="balls_left" required min="0">
+        </div>
+        <div class="mb-3">
+            <label for="wickets" class="form-label">Wickets Remaining</label>
+            <input type="number" class="form-control" id="wickets" name="wickets" required min="0" max="10">
+        </div>
+        <div class="mb-3">
+            <label for="total_runs_x" class="form-label">Total Runs (so far)</label>
+            <input type="number" class="form-control" id="total_runs_x" name="total_runs_x" required min="0">
+        </div>
+        <div class="mb-3">
+            <label for="crr" class="form-label">Current Run Rate (CRR)</label>
+            <input type="number" step="0.01" class="form-control" id="crr" name="crr" required min="0">
+        </div>
+        <div class="mb-3">
+            <label for="rrr" class="form-label">Required Run Rate (RRR)</label>
+            <input type="number" step="0.01" class="form-control" id="rrr" name="rrr" required min="0">
+        </div>
+        <div class="d-flex gap-2 justify-content-between mt-3">
+            <button type="button" class="btn btn-secondary" onclick="autofillForm()">Autofill Example</button>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </div>
+    </form>
+    {% if result %}
+    <div class="alert alert-info mt-4 text-center">
+        <h2>Win Probability: <span class="text-success">{{ result.prob }}%</span></h2>
+        <h3>Predicted Outcome: <span class="fw-bold">{{ result.pred }}</span></h3>
+    </div>
+    {% endif %}
+</div>
+<script>
+function autofillForm() {
+    document.getElementById('batting_team').value = 'Mumbai Indians';
+    document.getElementById('bowling_team').value = 'Chennai Super Kings';
+    document.getElementById('city').value = 'Bengaluru';
+    document.getElementById('runs_left').value = 45;
+    document.getElementById('balls_left').value = 30;
+    document.getElementById('wickets').value = 5;
+    document.getElementById('total_runs_x').value = 150;
+    document.getElementById('crr').value = 8.5;
+    document.getElementById('rrr').value = 9.0;
+}
+</script>
+</body>
+</html> 

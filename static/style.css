@@ -1,0 +1,54 @@
+body {
+    background-color: #181a1b;
+    color: #f1f1f1;
+}
+.container {
+    max-width: 500px;
+    background: #23272b;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    padding: 2rem 2.5rem;
+}
+h1 {
+    text-align: center;
+    color: #f8f9fa;
+}
+.form-label, label, .form-select, .form-control {
+    color: #f1f1f1;
+    background-color: #23272b;
+    border-color: #444c56;
+}
+.form-control, .form-select {
+    background-color: #23272b;
+    color: #f1f1f1;
+    border: 1px solid #444c56;
+}
+.form-control:focus, .form-select:focus {
+    background-color: #23272b;
+    color: #fff;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+.btn-secondary {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: #f1f1f1;
+}
+.btn-secondary:hover {
+    background-color: #23272b;
+    border-color: #23272b;
+    color: #fff;
+}
+.alert-info {
+    background-color: #23272b;
+    color: #f1f1f1;
+    border-color: #444c56;
+} 
